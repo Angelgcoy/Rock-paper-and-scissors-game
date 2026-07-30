@@ -4,8 +4,16 @@ html{
 
 body {
   font-family: 'Roboto', sans-serif;
+  color: white;
+  background-color: #121212;
+  
 }   
 
-.Main {
-;
+h1 {
+  font-size: 70px;
+  text-align: center;
+  margin-top: 100px;
+  font-weight: 900px;
+  justify-content: center;
 }
+
