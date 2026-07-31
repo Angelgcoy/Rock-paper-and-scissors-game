@@ -10,7 +10,7 @@ body {
 }   
 
 h1 {
-  font-size: 40px;
+  font-size: 70px;
   
   font-weight: 900px;
   padding: 60px 40px;
@@ -26,7 +26,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  width: 60%;
+  width: 30%;
   margin-top:20px;
   padding: 40px 20px;
   border-style: solid;
@@ -36,4 +36,29 @@ h1 {
   box-shadow: 5px 4px 15px 0px magenta;
 }
 
+h2 {
+  font-size: 50px;
+}
 
+.cards{
+  display:flex;
+  flex-direction: row;
+  gap: 50px;
+  margin-bottom: 40px;
+   
+}
+.button {
+  font-size: 40px;
+  background-color: #2d2d2d;
+  border-style: solid;
+  border-radius: 6px;
+  border-width: 1px;
+  padding: 11px;
+  cursor:pointer;
+
+}
+
+.para{
+  font-size: 20px;
+  font-weight: 900;
+}
