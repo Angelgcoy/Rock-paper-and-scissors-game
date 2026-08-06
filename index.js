@@ -25,9 +25,11 @@ Función para escuchar cuántas rondas van y si llega a 5 comparar victorias y d
 
 Función para bloquear botones cuando se culminenas 5 rondas */
 
-const rock = document.querySelector("#btn-rock");
-const paper = document.querySelector("btn-paper");
-const scissors = document.querySelector("scissors");
+const btnRock = document.querySelector("#btn-rock");
+const btnPaper = document.querySelector("#btn-paper");
+const btnScissors = document.querySelector("#btn-scissors");
+let humanChoice = "";
+let machineChoice = "";
 
 function getMachineChoice (){
       const eleccion = Math.floor(Math.random() * 3) +1;
@@ -39,4 +41,29 @@ function getMachineChoice (){
      }
      else return "scissors";
 }
+
+function comparar(usser, machine) {
+    if (usser === machine) {
+        return "Draw!";
+    }
+    else if ((usser === "rock" && machine === "paper") ||
+            (usser === "paper" && machine === "scissors") ||
+            (usser === "scissors" && machine === "rock") )
+     return "you loose!"
+     else {
+        return "you win!"
+     }
+}
+
+
+btnRock.addEventListener('click', function(){
+    humanChoice = "rock";
+    machineChoice = getMachineChoice();
+
+    let resultado = comparar(humanChoice, machineChoice);
+    console.log(resultado)
+
+
+})
+
 
