@@ -39,7 +39,7 @@ let machineChoice = "";
 let result = "";
 let humanScore = 0
 let machineScore = 0;
-let round = 1;
+let round = 0;
 
 function getMachineChoice (){
       const eleccion = Math.floor(Math.random() * 3) +1;
@@ -83,6 +83,32 @@ function playRound (resultadoRonda) {
     else if (result === "you loose!")  machineScore++ ;
 }
  
+function checkRound (roundd) {
+    if (roundd === 5) {
+        btnRock.disabled = true;
+        btnPaper.disabled = true;
+        btnScissors.disabled = true;
+    }
+    else {}
+}
+
+    function finalResult(final) {
+        if (round === 5 && humanScore > machineScore) {
+            return alert("ya ganaste, dejalo hasta ahi que se me olvido poner un texto que lo dijera xd")
+        }
+        else if 
+            (round === 5 && humanScore < machineScore) {
+                alert("perdiste. dejalo hasta ahi que se me olvido poner un texto que lo dijera xd");
+        } 
+        else if (round === 5 && humanScore === machineScore) {alert("ngbna empataron...");}
+
+        
+    }
+    
+    function changeRoundText (actualRound) {
+        return roundText.textContent = "Round " + round;
+    }
+
 
 btnRock.addEventListener('click', function(){
 
@@ -90,16 +116,72 @@ btnRock.addEventListener('click', function(){
     machineChoice = getMachineChoice();
     result = comparison(humanChoice, machineChoice);
     playRound(result);
+    round++;
+    
 
     changeMachineText(machineChoice);
      changeResultText(result);
+     changeRoundText(round);
+     checkRound(round);
+     finalResult(round);
+
+     
      console.log(result);
 
      console.log(humanScore);
      console.log(machineScore);
+     console.log(round);
    
     
 
-})
+});
+
+btnPaper.addEventListener('click', function(){
+
+    humanChoice = "paper";
+    machineChoice = getMachineChoice();
+    result = comparison(humanChoice, machineChoice);
+    playRound(result);
+    round++;
+
+    changeMachineText(machineChoice);
+     changeResultText(result);
+     changeRoundText(round);
+     checkRound(round);
+     finalResult(round);
+     
+     console.log(result);
+
+     console.log(humanScore);
+     console.log(machineScore);
+     console.log(round);
+   
+    
+
+});
+
+btnScissors.addEventListener('click', function(){
+
+    humanChoice = "scissors";
+    machineChoice = getMachineChoice();
+    result = comparison(humanChoice, machineChoice);
+    playRound(result);
+    round++;
+
+    changeMachineText(machineChoice);
+     changeResultText(result);
+     changeRoundText(round);
+     checkRound(round);
+     finalResult(round);
+     console.log(result);
+
+     console.log(humanScore);
+     console.log(machineScore);
+     console.log(round);
+   
+    
+
+});
+
 
 
