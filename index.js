@@ -28,8 +28,14 @@ Función para bloquear botones cuando se culminenas 5 rondas */
 const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
+
+const machineText = document.querySelector("#machine");
+const resultText = document.querySelector("#result");
+const roundText = document.querySelector("#roundText");
+
 let humanChoice = "";
 let machineChoice = "";
+let result = "";
 
 function getMachineChoice (){
       const eleccion = Math.floor(Math.random() * 3) +1;
@@ -42,8 +48,8 @@ function getMachineChoice (){
      else return "scissors";
 }
 
-function comparar(usser, machine) {
-    if (usser === machine) {
+function comparison(usser, machine) {
+if (usser === machine) {
         return "Draw!";
     }
     else if ((usser === "rock" && machine === "paper") ||
@@ -55,13 +61,25 @@ function comparar(usser, machine) {
      }
 }
 
+function changeMachineText (machine) {
+        return machineText.textContent = "Machine: " + machineChoice;
+}
+
+function changeResultText (changeResult) {
+    return resultText.textContent = "Result: " + result;
+}
+ 
 
 btnRock.addEventListener('click', function(){
+
     humanChoice = "rock";
     machineChoice = getMachineChoice();
 
-    let resultado = comparar(humanChoice, machineChoice);
-    console.log(resultado)
+    changeMachineText(machineChoice);
+
+     result = comparison(humanChoice, machineChoice);
+    changeResultText(result);
+    console.log(changeResultText());
 
 
 })
