@@ -1,0 +1,14 @@
+pseudocodigo para crear con calmita el proyecto
+
+
+pagina con html y css
+
+encabezado n color negro mate y el titulo en roboto
+una unica tarjeta en medio de mximo 400px
+ arriba la peticion para elegir una opcion
+ en medio 3 botones 
+ -estos botones contienen los nombres de las 3 opciones y cada uno tiene un color
+ debajo de los botones debe haber:
+ - "maquina":opcion de la maquina
+ -"resultado": quien gana
+ -"ronda": ronda actual
