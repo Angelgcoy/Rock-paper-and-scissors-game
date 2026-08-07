@@ -35,7 +35,11 @@ const roundText = document.querySelector("#roundText");
 
 let humanChoice = "";
 let machineChoice = "";
+
 let result = "";
+let humanScore = 0
+let machineScore = 0;
+let round = 1;
 
 function getMachineChoice (){
       const eleccion = Math.floor(Math.random() * 3) +1;
@@ -48,13 +52,13 @@ function getMachineChoice (){
      else return "scissors";
 }
 
-function comparison(usser, machine) {
-if (usser === machine) {
+function comparison(human, machine) {
+if (human === machine) {
         return "Draw!";
     }
-    else if ((usser === "rock" && machine === "paper") ||
-            (usser === "paper" && machine === "scissors") ||
-            (usser === "scissors" && machine === "rock") )
+    else if ((human === "rock" && machine === "paper") ||
+            (human === "paper" && machine === "scissors") ||
+            (human === "scissors" && machine === "rock") )
      return "you loose!"
      else {
         return "you win!"
@@ -68,19 +72,33 @@ function changeMachineText (machine) {
 function changeResultText (changeResult) {
     return resultText.textContent = "Result: " + result;
 }
+
+function playRound (resultadoRonda) {
+    if (result === "Draw!") { 
+        return;
+    }
+     if (result === "you win!") {
+          humanScore++ ;
+    }
+    else if (result === "you loose!")  machineScore++ ;
+}
  
 
 btnRock.addEventListener('click', function(){
 
     humanChoice = "rock";
     machineChoice = getMachineChoice();
+    result = comparison(humanChoice, machineChoice);
+    playRound(result);
 
     changeMachineText(machineChoice);
+     changeResultText(result);
+     console.log(result);
 
-     result = comparison(humanChoice, machineChoice);
-    changeResultText(result);
-    console.log(changeResultText());
-
+     console.log(humanScore);
+     console.log(machineScore);
+   
+    
 
 })
 
