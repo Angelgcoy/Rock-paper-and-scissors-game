@@ -61,4 +61,16 @@ h2 {
 .para{
   font-size: 10px;
   font-weight: 900;
+  flex: 1,1 calc(50% - 10px);
+}
+
+.text{
+ display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    width: 100%;
+}
+
+.text .para {
+    width: 48%;                 
 }
