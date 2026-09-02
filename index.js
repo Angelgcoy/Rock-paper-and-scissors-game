@@ -130,7 +130,6 @@ function finalResult(final) {
                 imageDiv.style.maxWidth = "400px";     
                 imageDiv.style.height = "300px";       
                 imageDiv.style.overflow = "hidden";    
-                imageDiv.style.border = "2px solid #ccc"
                 imageDiv.style.marginTop = '40px';      
                 imageDiv.style.marginLeft = 'auto';     
                 imageDiv.style.marginRight = 'auto';   
@@ -145,6 +144,14 @@ function finalResult(final) {
         image.style.height = "100%";
         image.style.objectFit = "contain";
         image.src = rutaAzar;
+        
+        const reflexionMessage = document.createElement("p")
+        reflexionMessage.classList.add("reflexion")
+        reflexionMessage.textContent = "PARA REFLEXIONAR:"
+        reflexionMessage.style.fontSize = "30px";
+        reflexionMessage.style.textAlign = "center";
+        reflexionMessage.style.color = "white"
+        reflexionMessage.style.fontWeight = "900";
 
 
          if (round === 5 && humanScore > machineScore) {
@@ -165,6 +172,7 @@ function finalResult(final) {
 
          textContainer.appendChild(winnerText);
          imageDiv.appendChild(image)
+         document.body.appendChild(reflexionMessage)
          document.body.appendChild(imageDiv)
 
 
