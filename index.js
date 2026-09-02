@@ -28,7 +28,9 @@ Función para bloquear botones cuando se culminenas 5 rondas */
 const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
+textContainer = document.querySelector(".text")
 
+const playerText = document.querySelector("#player")
 const machineText = document.querySelector("#machine");
 const resultText = document.querySelector("#result");
 const roundText = document.querySelector("#roundText");
@@ -65,6 +67,10 @@ if (human === machine) {
      }
 }
 
+function changePlayerText (player) {
+    return playerText.textContent = "Player: " + humanChoice;
+}
+
 function changeMachineText (machine) {
         return machineText.textContent = "Machine: " + machineChoice;
 }
@@ -80,7 +86,9 @@ function playRound (resultadoRonda) {
      if (result === "you win!") {
           humanScore++ ;
     }
-    else if (result === "you loose!")  machineScore++ ;
+    else if (result === "you loose!")
+        
+        machineScore++ ;
 }
  
 function checkRound (roundd) {
@@ -92,17 +100,36 @@ function checkRound (roundd) {
     else {}
 }
 
-    function finalResult(final) {
-        if (round === 5 && humanScore > machineScore) {
-            return alert("ya ganaste, dejalo hasta ahi que se me olvido poner un texto que lo dijera xd")
-        }
-        else if 
-            (round === 5 && humanScore < machineScore) {
-                alert("perdiste. dejalo hasta ahi que se me olvido poner un texto que lo dijera xd");
-        } 
-        else if (round === 5 && humanScore === machineScore) {alert("ngbna empataron...");}
 
-        
+
+function finalResult(final) {
+     if (round === 5){
+        const winnerText = document.createElement("p"); 
+        winnerText.classList.add("para");
+        winnerText.style.width = "100%";
+        winnerText.style.textAlign = "center";
+        winnerText.fontSize = "15px";
+        winnerText.style.color = "#1B9E3A";
+
+         if (round === 5 && humanScore > machineScore) {
+            
+             winnerText.textContent = "Ganaste!, solo no se lo cuentes a tu familia como si fuera un logro...";
+         }
+         else if 
+             (round === 5 && humanScore < machineScore) {
+                  winnerText.style.color = "red";
+                 winnerText.textContent = "perdiste! no es como si eso fuera sorpresa.";
+               
+         } 
+         else if (round === 5 && humanScore === machineScore) {
+            winnerText.style.color = "yellow";
+            winnerText.textContent = "empate! no se supone que eso debiera ocurrir..."
+            
+            ;}
+
+         textContainer.appendChild(winnerText);
+
+     }   
     }
     
     function changeRoundText (actualRound) {
@@ -120,20 +147,11 @@ btnRock.addEventListener('click', function(){
     
 
     changeMachineText(machineChoice);
+    changePlayerText(humanChoice);
      changeResultText(result);
      changeRoundText(round);
      checkRound(round);
      finalResult(round);
-
-     
-     console.log(result);
-
-     console.log(humanScore);
-     console.log(machineScore);
-     console.log(round);
-   
-    
-
 });
 
 btnPaper.addEventListener('click', function(){
@@ -145,19 +163,11 @@ btnPaper.addEventListener('click', function(){
     round++;
 
     changeMachineText(machineChoice);
+    changePlayerText(humanChoice);
      changeResultText(result);
      changeRoundText(round);
      checkRound(round);
      finalResult(round);
-     
-     console.log(result);
-
-     console.log(humanScore);
-     console.log(machineScore);
-     console.log(round);
-   
-    
-
 });
 
 btnScissors.addEventListener('click', function(){
@@ -169,17 +179,11 @@ btnScissors.addEventListener('click', function(){
     round++;
 
     changeMachineText(machineChoice);
+    changePlayerText(humanChoice);
      changeResultText(result);
      changeRoundText(round);
      checkRound(round);
      finalResult(round);
-     console.log(result);
-
-     console.log(humanScore);
-     console.log(machineScore);
-     console.log(round);
-   
-    
 
 });
 

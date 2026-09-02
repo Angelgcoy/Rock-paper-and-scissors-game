@@ -54,8 +54,12 @@ h2 {
   border-radius: 6px;
   border-width: 1px;
   padding: 11px;
-  cursor:pointer:
+  cursor:pointer;
 
+}
+
+button:hover {
+  filter: brightness(0.85);
 }
 
 .para{
@@ -68,6 +72,7 @@ h2 {
  display: flex;
     flex-wrap: wrap;
     justify-content: space-between; 
+    text-align: center;
     width: 100%;
 }
 
