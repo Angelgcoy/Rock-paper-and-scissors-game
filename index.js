@@ -35,6 +35,17 @@ const machineText = document.querySelector("#machine");
 const resultText = document.querySelector("#result");
 const roundText = document.querySelector("#roundText");
 
+const randomImages = [
+    "images/image1.png",
+    "images/image2.png",
+    "images/image3.png",
+    "images/image4.png",
+    "images/image5.png",
+    "images/image6.png",
+    "images/image7.png",
+];
+
+
 let humanChoice = "";
 let machineChoice = "";
 
@@ -103,6 +114,7 @@ function checkRound (roundd) {
 
 
 function finalResult(final) {
+    //HERE GOES I MAKE THE DIV FOR THE FINAL MESSAGE TO THE WINNER
      if (round === 5){
         const winnerText = document.createElement("p"); 
         winnerText.classList.add("para");
@@ -110,6 +122,30 @@ function finalResult(final) {
         winnerText.style.textAlign = "center";
         winnerText.fontSize = "15px";
         winnerText.style.color = "#1B9E3A";
+
+        //HERE I MAKE THE DIV FOR THE RANDOM IMAGES
+        const imageDiv = document.createElement("div");
+              imageDiv.classList.add("images");
+                imageDiv.style.width = "100%";
+                imageDiv.style.maxWidth = "400px";     
+                imageDiv.style.height = "300px";       
+                imageDiv.style.overflow = "hidden";    
+                imageDiv.style.border = "2px solid #ccc"
+                imageDiv.style.marginTop = '40px';      
+                imageDiv.style.marginLeft = 'auto';     
+                imageDiv.style.marginRight = 'auto';   
+                
+                
+        const imageRandomSelector = Math.floor(Math.random() * randomImages.length);
+        const rutaAzar = randomImages[imageRandomSelector]
+
+        const image = document.createElement("img");
+        image.alt = "PARA REFLEXIONAR:";
+        image.style.width = "100%";
+        image.style.height = "100%";
+        image.style.objectFit = "contain";
+        image.src = rutaAzar;
+
 
          if (round === 5 && humanScore > machineScore) {
             
@@ -128,6 +164,9 @@ function finalResult(final) {
             ;}
 
          textContainer.appendChild(winnerText);
+         imageDiv.appendChild(image)
+         document.body.appendChild(imageDiv)
+
 
      }   
     }
